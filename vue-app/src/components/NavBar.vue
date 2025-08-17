@@ -21,8 +21,8 @@ function guardarLocalizacion ({ city }) {
   if (!guardadas.includes(city)) {
     guardadas.push(city)
     localStorage.setItem('ciudades', JSON.stringify(guardadas))
-    ciudades.value = guardadas
   }
+  ciudades.value = guardadas
   cerrarModal()
 }
 

@@ -89,14 +89,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onEsc))
 .modal{
   background: #fff;
   border-radius: 10px;
-  padding: 30px 20px; /* padding más pequeño para móvil */
-  width: 90%;           /* ancho relativo */
-  max-width: 400px;     /* ancho máximo */
-  max-height: 90vh;     /* que no sobrepase altura de la pantalla */
+  padding: 30px 20px;
+  width: 90%;     
+  max-width: 400px;
+  max-height: 90vh;
   box-shadow: 0 10px 30px rgba(0,0,0,.2);
   display: flex;
   flex-direction: column;
-  overflow-y: auto;     /* habilita scroll si el contenido es muy alto */
+  overflow-y: auto;
 }
 
 .modal > h2{
