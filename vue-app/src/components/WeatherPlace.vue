@@ -13,6 +13,7 @@ const weatherData = ref(null)
 async function crear(ciudad) {
   try {
     const response = await fetch(`${apiUrl}/weather?q=${encodeURIComponent(ciudad)}&units=metric&appid=${apiKey}`);
+    console.log("llamando a ", response)
     if (response.ok) {
       weatherData.value = await response.json()
       console.log("Datos del clima:", weatherData.value)

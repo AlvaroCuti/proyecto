@@ -8,21 +8,33 @@ function cerrar () {
   emit('close')
 }
 
-function submit () {
+async function submit() {
   const nuevaCiudad = city.value.trim()
   if (!nuevaCiudad) return
 
-  const ciudadesGuardadas = JSON.parse(localStorage.getItem('ciudades') || '[]')
+  try {
+    const apiUrl = import.meta.env.VITE_API_URL
+    const apiKey = import.meta.env.VITE_API_KEY
+    const response = await fetch(`${apiUrl}/weather?q=${encodeURIComponent(nuevaCiudad)}&appid=${apiKey}`)
+    
+    if (!response.ok) {
+      alert("Ciudad no válida")
+      return
+    }
 
-  if (!ciudadesGuardadas.includes(nuevaCiudad)) {
-    ciudadesGuardadas.push(nuevaCiudad)
+    const ciudadesGuardadas = JSON.parse(localStorage.getItem('ciudades') || '[]')
+
+    if (!ciudadesGuardadas.includes(nuevaCiudad)) {
+      ciudadesGuardadas.push(nuevaCiudad)
+    }
+
+    localStorage.setItem('ciudades', JSON.stringify(ciudadesGuardadas))
+    emit('submit', { city: nuevaCiudad })
+    city.value = ''
+  } catch (error) {
+    console.error(error)
+    alert("Error al verificar la ciudad")
   }
-
-  localStorage.setItem('ciudades', JSON.stringify(ciudadesGuardadas))
-
-  emit('submit', { city: nuevaCiudad })
-
-  city.value = ''
 }
 
 function onEsc (e) {
