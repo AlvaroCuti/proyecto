@@ -15,7 +15,7 @@ async function submit() {
   try {
     const apiUrl = import.meta.env.VITE_API_URL
     const apiKey = import.meta.env.VITE_API_KEY
-    const response = await fetch(`${apiUrl}/weather?q=${encodeURIComponent(nuevaCiudad)}&appid=${apiKey}`)
+    const response = await fetch(`${apiUrl}weather?q=${encodeURIComponent(nuevaCiudad)}&appid=${apiKey}`)
     
     if (!response.ok) {
       alert("Ciudad no válida")
@@ -89,12 +89,14 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onEsc))
 .modal{
   background: #fff;
   border-radius: 10px;
-  padding: 50px;
-  min-width: 400px;
-  max-width: 90vw;
+  padding: 30px 20px; /* padding más pequeño para móvil */
+  width: 90%;           /* ancho relativo */
+  max-width: 400px;     /* ancho máximo */
+  max-height: 90vh;     /* que no sobrepase altura de la pantalla */
   box-shadow: 0 10px 30px rgba(0,0,0,.2);
   display: flex;
   flex-direction: column;
+  overflow-y: auto;     /* habilita scroll si el contenido es muy alto */
 }
 
 .modal > h2{
@@ -149,4 +151,28 @@ onBeforeUnmount(() => window.removeEventListener('keydown', onEsc))
 .ciudad{
     margin-right: 20px;
 }
+
+@media (max-width: 480px){
+  .modal {
+    padding: 20px 15px;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+  .modal > h2 {
+    font-size: 1.5rem;
+  }
+  .input {
+    font-size: 1rem;
+    padding: 8px 10px;
+  }
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px 0;
+  }
+}
+
 </style>

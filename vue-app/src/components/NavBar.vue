@@ -135,4 +135,25 @@ button{
 .menu-lista li:hover{
   background: #f0f0f0;
 }
+
+@media (max-width: 600px) {
+  .barra {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 5px;
+  }
+  .barra .item {
+    margin: 5px 0;
+  }
+
+  button{
+    margin-top: 10px;
+  }
+
+  .menu-lista {
+    width: 150px;
+    font-size: 1rem;
+  }
+}
+
 </style>

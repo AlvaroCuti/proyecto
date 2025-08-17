@@ -12,7 +12,7 @@ const weatherData = ref(null)
 
 async function crear(ciudad) {
   try {
-    const response = await fetch(`${apiUrl}/weather?q=${encodeURIComponent(ciudad)}&units=metric&appid=${apiKey}`);
+    const response = await fetch(`${apiUrl}weather?q=${encodeURIComponent(ciudad)}&units=metric&appid=${apiKey}`);
     console.log("llamando a ", response)
     if (response.ok) {
       weatherData.value = await response.json()
@@ -119,15 +119,17 @@ watch(() => props.city, (nuevaCiudad) => {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }
 
 .info {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap; 
   align-items: center;
   justify-content: center;
-  gap: 42px;
-  width: auto;
+  gap: 20px;
+  width: 100%;
 }
 
 .info > img {
@@ -211,5 +213,40 @@ watch(() => props.city, (nuevaCiudad) => {
   font-size: 1.3rem;
   font-weight: 700;
 }
+
+
+@media (max-width: 768px) {
+  .nombre h1 {
+    font-size: 2.5rem;
+    margin-top: 4px;
+  }
+  .nombre h2 {
+    font-size: 1.8rem;
+  }
+  .datos_temp h1 {
+    font-size: 2rem;
+  }
+  .datos_temp h3, .imagen span {
+    font-size: 1rem;
+  }
+  .dato_row {
+    font-size: 1.2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dato_row .value {
+    text-align: left;
+    margin-top: 5px;
+  }
+
+  .info{
+    margin-right: 50px;
+  }
+
+  .nombre{
+    margin-right: 50px;
+  }
+}
+
 
 </style>

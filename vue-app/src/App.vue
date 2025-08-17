@@ -25,13 +25,15 @@ body {
   background-color: white;
 }
 
-.content{
-  position: fixed;
+.content {
   display: flex;
-  top: 150px;           
-  left: 0;          
-  width: 100%;      
-  height: 100%;
+  flex-direction: column;
+  top: 150px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 150px);
+  overflow-y: auto;
+  position: fixed;
 }
 
 </style>
