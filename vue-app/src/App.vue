@@ -1,12 +1,17 @@
 <script setup>
 import NavBar from './components/NavBar.vue'
 import WeatherPlace from './components/WeatherPlace.vue'
+import { ref } from 'vue'
 
-const cityName = "Madrid" 
+const cityName = ref("Madrid")
+
+function actualizarCiudad(nuevaCiudad) {
+  cityName.value = nuevaCiudad
+}
 </script>
 
 <template>
-  <NavBar />
+  <NavBar @city-selected="actualizarCiudad" />
   <div class="content">
     <WeatherPlace :city="cityName"/>
   </div>
@@ -23,9 +28,9 @@ body {
 .content{
   position: fixed;
   display: flex;
-  top: 150px;            /* Desde la parte superior */
-  left: 0;           /* Desde la izquierda */
-  width: 100%;       /* Ocupa todo el ancho */
+  top: 150px;           
+  left: 0;          
+  width: 100%;      
   height: 100%;
 }
 
