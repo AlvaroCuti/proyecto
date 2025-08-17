@@ -6,7 +6,7 @@ const modalVisible = ref(false)
 const menuVisible = ref(false)
 const ciudades = ref([])
 
-const emit = defineEmits(['city-selected']) // <-- emit para App.vue
+const emit = defineEmits(['city-selected'])
 
 function abrirModal () {
   modalVisible.value = true
