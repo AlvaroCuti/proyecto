@@ -1,0 +1,1 @@
+Primeramente clonar el repositorio, posteriormente instalar todas las dependencias necesarias con "npm install", a continuación acceder a la carpeta donde se encuentra el proyecto y por último lanzarlo en local con "npm run dev".
