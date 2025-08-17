@@ -23,9 +23,9 @@
   .barra{
     position: fixed;
     display: flex;
-    top: 0;            /* Desde la parte superior */
-    left: 0;           /* Desde la izquierda */
-    width: 100%;       /* Ocupa todo el ancho */
+    top: 0;
+    left: 0;
+    width: 100%;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(78, 169, 226);

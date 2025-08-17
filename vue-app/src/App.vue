@@ -23,9 +23,9 @@ body {
 .content{
   position: fixed;
   display: flex;
-  top: 150px;            /* Desde la parte superior */
-  left: 0;           /* Desde la izquierda */
-  width: 100%;       /* Ocupa todo el ancho */
+  top: 150px;           
+  left: 0;          
+  width: 100%;      
   height: 100%;
 }
 
